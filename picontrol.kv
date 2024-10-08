@@ -1,0 +1,129 @@
+<MainScreen>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 20
+
+    # 배경색 추가
+    canvas.before:
+        Color:
+            rgba: 0.4, 0.6, 0.7, 0.5  # 배경색 설정 (RGBA값)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        size_hint_y: None
+        height: '40dp'
+        ToggleButton:
+            id: auto_mode_toggle
+            text: 'Auto Mode'
+            size_hint: (1, 1)  # LED 토글 버튼 크기 조정
+            on_state: root.toggle_auto_mode(self)
+
+    # LED 1 제어 버튼
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        size_hint_y: None
+        height: '40dp'
+
+        Label:
+            id: led1_status
+            text: 'LED1: OFF'
+
+        Button:
+            id: led1_button
+            size_hint: (0.3, 0.7)  # LED 토글 버튼 크기 조정
+            background_normal: 'button_off.png'
+            background_down: 'button_on.png'
+            on_press:
+                root.toggle_led(0, 1 if root.ids.led1_status.text.endswith('OFF') else 0)
+                self.background_normal = 'button_off.png' if root.ids.led1_status.text.endswith('OFF') else 'button_on.png'  # 상태에 따라 이미지 변경
+
+    # LED 2 제어 버튼
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        size_hint_y: None
+        height: '40dp'
+
+        Label:
+            id: led2_status
+            text: 'LED2: OFF'
+
+        Button:
+            id: led2_button
+            size_hint: (0.3, 0.7)  # LED 토글 버튼 크기 조정
+            background_normal: 'button_off.png'
+            background_down: 'button_on.png'
+            on_press:
+                root.toggle_led(1, 1 if root.ids.led2_status.text.endswith('OFF') else 0)
+                self.background_normal = 'button_off.png' if root.ids.led2_status.text.endswith('OFF') else 'button_on.png'  # 상태에 따라 이미지 변경
+
+    # LED 3 제어 버튼
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        size_hint_y: None
+        height: '40dp'
+
+        Label:
+            id: led3_status
+            text: 'LED3: OFF'
+
+        Button:
+            id: led3_button
+            size_hint: (0.3, 0.7)  # LED 토글 버튼 크기 조정
+            background_normal: 'button_off.png'
+            background_down: 'button_on.png'
+            on_press:
+                root.toggle_led(2, 1 if root.ids.led3_status.text.endswith('OFF') else 0)
+                self.background_normal = 'button_off.png' if root.ids.led3_status.text.endswith('OFF') else 'button_on.png'  # 상태에 따라 이미지 변경
+
+######### Temperature
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 50
+        size_hint_y: None
+        height: '40dp'
+        size_hint: (0.7, 1)
+        Image:
+            id: img_temp
+            source: 'temp.png' 
+            size_hint: (0.8, 0.8)  # 이미지 크기 조정
+
+        Label:
+            id: temperature_label
+            text: 'Temperature: -- °C'
+
+############ Humidity
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        size_hint_y: None
+        height: '40dp'
+        size_hint: (0.7, 1)
+        Image:
+            id: img_humidity
+            source: 'humid.png' 
+            size_hint: (1, 1)  # 이미지 크기 조정
+
+        Label:
+            id: humidity_label
+            text: 'Humidity: -- %'
+
+    ##### Ruler
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        size_hint_y: None
+        height: '40dp'
+        size_hint: (0.7, 1)
+        Image:
+            id: img_ruler
+            source: 'ruler_2.png' 
+            size_hint: (1, 1)  # 이미지 크기 조정
+
+        Label:
+            id: distance_label
+            text: 'Distance: -- cm'
