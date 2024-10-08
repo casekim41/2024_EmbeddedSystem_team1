@@ -1,0 +1,50 @@
+<MainScreen>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+
+    Label:
+        id: led1_status
+        text: "LED1: Unknown"
+        font_size: 24
+        size_hint_y: None
+        height: 50
+
+    BoxLayout:
+        Button:
+            text: "Turn LED1 ON"
+            on_press: root.toggle_led(0, 1)
+        Button:
+            text: "Turn LED1 OFF"
+            on_press: root.toggle_led(0, 0)
+
+    Label:
+        id: led2_status
+        text: "LED2: Unknown"
+        font_size: 24
+        size_hint_y: None
+        height: 50
+
+    BoxLayout:
+        Button:
+            text: "Turn LED2 ON"
+            on_press: root.toggle_led(1, 1)
+        Button:
+            text: "Turn LED2 OFF"
+            on_press: root.toggle_led(1, 0)
+
+    Label:
+        id: led3_status
+        text: "LED3: Unknown"
+        font_size: 24
+        size_hint_y: None
+        height: 50
+
+    BoxLayout:
+        Button:
+            text: "Turn LED3 ON"
+            on_press: root.toggle_led(2, 1)
+        Button:
+            text: "Turn LED3 OFF"
+            on_press: root.toggle_led(2, 0)
+

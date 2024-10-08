@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='main.css') }}">
+        <script src="{{ url_for('static', filename='get_data.js') }}"></script>
+</head>
+
+<body>
+    <div class = "introduction_div">KU Embedded System</div>
+    <div class = "module_div">
+        <div class = "auto_manu_div">
+            <div class = "auto_btn_div">
+                <button class = "auto_btn">AUTO</button>
+            </div>
+            <div class = "manu_btn_div">
+                <button class = "manu_btn">MANU</button>
+            </div>
+            
+        </div>
+        <div class = "DHT_div">
+            <div class = "DHT_temp_div">
+                <div class = "DHT_temp_logo_div">
+                    <img src = "{{url_for('static', filename = 'images/temp.png')}}" style = "width : 50%; height : 50%;">
+                </div>
+                <span class = "DHT_temp_data"></span>
+            </div>
+
+            <div class = "DHT_humid_div">
+                <div class = "DHT_humid_logo_div">
+                    <img src = "{{url_for('static', filename = 'images/humid.png')}}" style = "width : 50%; height : 50%;">
+                </div>  
+                <span class = "DHT_humid_data"></span>
+            </div>
+        </div>
+
+        <div class = "DIST_div">
+            
+            <div class = "DIST_logo_div" style = "display : flex;">
+                    <img src = "{{url_for('static', filename = 'images/image.png')}}"style = "width : 50%; height : 50%;">
+                    <span class = "DIST_data"></span>
+            </div>
+            
+            <div class = "notice_warning">
+                    <img src = "{{url_for('static', filename = 'images/warning.png')}}"style = "width : 30%; height : 30%;">
+            </div>
+                        
+        </div>
+    </div>
+</body>
+</html>
